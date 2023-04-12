@@ -1,9 +1,16 @@
 ﻿import React from "react"
 import { InputSearch } from "./styled"
 import { FaPlus, FaSearch } from 'react-icons/fa'
+import { FiXCircle } from 'react-icons/fi'
+
 import { Flex } from "../../Styles"
 
-const SearchBar = ({ term, setTerm }) => {
+const SearchBar = ({
+	term,
+	setTerm,
+	add,
+	setAdd
+}) => {
 	return (
 		<Flex alignItens="center">
 			<FaSearch />
@@ -13,7 +20,13 @@ const SearchBar = ({ term, setTerm }) => {
 				value={term}
 				onChange={(e) => setTerm(e.target.value)}
 			/>
-			<FaPlus />
+			{
+				add ? (
+					<FiXCircle size={25} onClick={() => setAdd(false)} />
+				) : (
+					<FaPlus onClick={() => setAdd(true)} />
+				)
+			}
 		</Flex>
 	)
 }

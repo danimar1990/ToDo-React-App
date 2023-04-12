@@ -4,37 +4,41 @@ import Footer from "../../Components/Footer"
 import SearchBar from "../../Components/SearchBar"
 import Container from "../../Components/Container"
 import RenderList from "../../Components/RenderList"
+import BarInput from "../../Components/BarInput"
 
 const Home = () => {
 	const [term, setTerm] = useState('')
+	const [listName, setListName] = useState('')
 	const [list, setList] = useState([
 		{
-			name: 'Lista de Compras 1',
+			name: 'Lista de Compras',
 			id: new Date().getTime(),
 			itens: []
 		},
 		{
-			name: 'Lista de Compras 2',
+			name: 'Lista de Vendas',
 			id: new Date().getTime() * 2,
 			itens: []
 		},
 		{
-			name: 'Lista de Compras 3',
+			name: 'Lista de Afazeres',
 			id: new Date().getTime() * 4,
 			itens: []
 		},
 	])
 
-	const adicionaUm = () => {
+	const [add, setAdd] = useState(false)
+
+	const addOne = () => {
 		const novoItem = {
-			name: 'Lista de Compras 4',
+			name: listName,
 			id: new Date().getTime() * 4,
 			itens: []
 		}
 
 		const novaLista = [...list, novoItem]
 		setList(novaLista)
-		console.log(novaLista)
+		setListName('')
 	}
 
 	return (
@@ -42,8 +46,10 @@ const Home = () => {
 			<Header />
 			<Container title="teste" description="teste 1">
 				<div>
-					<button onClick={adicionaUm}>a</button>
-					<SearchBar term={term} setTerm={setTerm} />
+					<SearchBar term={term} setTerm={setTerm} add={add} setAdd={setAdd} />
+					{
+						add && <BarInput listName={listName} setListName={setListName} addOne={addOne} />
+					}
 					<RenderList list={list} term={term} />
 				</div>
 			</Container>

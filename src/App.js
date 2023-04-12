@@ -14,13 +14,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Home />
-
-    </>
-  );
+	return (
+		<>
+			<GlobalStyle />
+			<Home />
+		</>
+	);
 }
 
 export default App;

@@ -2,7 +2,7 @@
 import { ListItem } from "./styled"
 import { FaEye, FaTrash } from "react-icons/fa"
 
-const RenderList = ({ list, term }) => {
+const RenderList = ({ list, term, removeOne }) => {
 	console.log(list)
 
 	const listFiltered = useMemo(() => {
@@ -21,7 +21,7 @@ const RenderList = ({ list, term }) => {
 						</div>
 						<div>
 							<FaEye />
-							<FaTrash />
+							<FaTrash onClick={() => removeOne(item.id)} />
 						</div>
 					</ListItem>
 				))

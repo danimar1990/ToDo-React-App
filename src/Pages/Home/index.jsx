@@ -41,6 +41,12 @@ const Home = () => {
 		setListName('')
 	}
 
+	const removeOne = (id) => {
+		const newList = list.filter(item => item.id !== id)
+
+		setList(newList)
+	}
+
 	return (
 		<div>
 			<Header />
@@ -48,9 +54,14 @@ const Home = () => {
 				<div>
 					<SearchBar term={term} setTerm={setTerm} add={add} setAdd={setAdd} />
 					{
-						add && <BarInput listName={listName} setListName={setListName} addOne={addOne} />
+						add &&
+						<BarInput
+							setListName={setListName}
+							listName={listName}
+							addOne={addOne}
+						/>
 					}
-					<RenderList list={list} term={term} />
+					<RenderList list={list} term={term} removeOne={removeOne} />
 				</div>
 			</Container>
 			<Footer />

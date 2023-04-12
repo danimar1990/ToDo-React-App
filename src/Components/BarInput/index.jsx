@@ -9,7 +9,7 @@ const BarInput = ({ listName, setListName, addOne }) => {
 				type="text"
 				placeholder="Qual será o nome da sua lista?"
 				value={listName}
-				onChange={(e) => setListName(e.target.name)}
+				onChange={(e) => setListName(e.target.value)}
 			/>
 
 			<TbPlaylistAdd onClick={addOne} />

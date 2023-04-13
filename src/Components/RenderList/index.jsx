@@ -1,6 +1,7 @@
 ﻿import React, { useMemo } from "react"
 import { ListItem } from "./styled"
 import { FaEye, FaTrash } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const RenderList = ({ list, term, removeOne }) => {
 	console.log(list)
@@ -20,7 +21,9 @@ const RenderList = ({ list, term, removeOne }) => {
 							{item.name}
 						</div>
 						<div>
-							<FaEye />
+							<Link>
+								<FaEye to={`/lista/${item.id}`} />
+							</Link>
 							<FaTrash onClick={() => removeOne(item.id)} />
 						</div>
 					</ListItem>

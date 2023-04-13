@@ -7,7 +7,7 @@ const BarInput = ({ listName, setListName, addOne }) => {
 		<BarInputContent>
 			<input
 				type="text"
-				placeholder="Qual será o nome da sua lista?"
+				placeholder="Qual será o nome da sua nova lista?"
 				value={listName}
 				onChange={(e) => setListName(e.target.value)}
 			/>

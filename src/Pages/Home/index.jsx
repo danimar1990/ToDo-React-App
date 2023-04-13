@@ -5,29 +5,14 @@ import SearchBar from "../../Components/SearchBar"
 import Container from "../../Components/Container"
 import RenderList from "../../Components/RenderList"
 import BarInput from "../../Components/BarInput"
+import { useListContext } from "../../Context/List.context"
 
 const Home = () => {
 	const [term, setTerm] = useState('')
 	const [listName, setListName] = useState('')
-	const [list, setList] = useState([
-		{
-			name: 'Lista de Compras',
-			id: new Date().getTime(),
-			itens: []
-		},
-		{
-			name: 'Lista de Vendas',
-			id: new Date().getTime() * 2,
-			itens: []
-		},
-		{
-			name: 'Lista de Afazeres',
-			id: new Date().getTime() * 4,
-			itens: []
-		},
-	])
-
 	const [add, setAdd] = useState(false)
+
+	const { list, setList } = useListContext()
 
 	const addOne = () => {
 		const novoItem = {
